@@ -57,7 +57,7 @@ class Artist extends React.Component {
             return (
                 <div className="col-lg-3 item" style={{ float: 'left' }}>
                     <Link onClick={this.forceUpdate} to={{ pathname: `/artist/${item.id}`, state: {item} }}>
-                        <img src={item.images[1].url} className="relatedImg" />
+                        <img src={item.images[1].url} alt="related artist" className="relatedImg" />
                     </Link>
                     <div className="content">
                        <h3>{item.name}</h3>
@@ -84,7 +84,7 @@ class Artist extends React.Component {
         return(
             <section className="mb-0">
                 <div className="container">
-                    <div className="row">
+                    <div className="row contents">
                         <div className="col-lg-12">
                         <h2 className="text-center text-uppercase" style={{ padding: '20px' }}>{this.state.artist.name}</h2>
                         </div>
@@ -92,7 +92,7 @@ class Artist extends React.Component {
                     
                     <div className="row">
                         <div className="col-lg-6 left">
-                            <img className="profile" src={artistImageURL[0]} />
+                            <img className="profile" alt="artist profile" src={artistImageURL[0]} />
                         </div>
                         <div className="col-lg-6 right">
                             <table className="ui table">
@@ -118,14 +118,9 @@ class Artist extends React.Component {
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div style={{ 
-                            padding: '50px',
-                            backgroundColor: '#b3b3b3',
-                            opacity: '0.6',
-                            width: '100%'
-                            }}>
-                            <h2 style={{ opacity: '1' }}>Realted Artists</h2>
+                    <div className="row track-header">
+                        <div className="col-lg-12">
+                            <h2 className="text-center text-uppercase" style={{ opacity: '1', padding: '20px' }}>Realted Artists</h2>
                         </div>
                     </div>
                 

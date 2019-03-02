@@ -2,12 +2,16 @@ import React from 'react';
 
 import '../style/App_Search.css';
 
+const ARTIST = "artist";
+
 class SearchBar extends React.Component {
 
     state = {
         term: '',
-        type: ''
+        type: ARTIST
     };
+
+    // enum
 
     onFormSubmit = (event) => {
         event.preventDefault();
@@ -32,14 +36,14 @@ class SearchBar extends React.Component {
                             <input 
                                 type="text"
                                 value={this.state.term}
-                                onChange={(e) => this.setState({ term: e.target.value, type: document.getElementById('types').value })}
+                                onChange={(e) => this.setState({ term: e.target.value })}
                             />
                             {/* <button onSubmit={this.onFormSubmit} className="ui button">Search</button> */}
                         </div>
                         <div className="field">
                             <label>Filter</label>
-                            <select className="ui dropdown" id="types">
-                                <option className="item" value="artist">Artist</option>
+                            <select className="ui dropdown" onChange={(e) => this.setState({ type: e.target.value })}>
+                                <option className="item" value={ARTIST}>Artist</option>
                                 <option className="item" value="album">Album</option>
                                 <option className="item" value="track">Track</option>
                             </select>

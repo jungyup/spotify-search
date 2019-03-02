@@ -30,9 +30,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <section className="mb-0">
+            <section className="mb-0" id="homeSection">
                 <div className="ui container" id="mainForm">
-                    <h2 style={{ margin: '20px', padding: '10px' }}>Spotify Search Engine</h2>
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <h2 className='text-center text-uppercase' style={{ padding: '20px', opacity: '1', color: '#00cc44' }}>Spotify Search Engine</h2>
+                        </div>
+                    </div>
+                    
                     <SearchBar onSubmit={this.onSearchSubmit} />
                     <SearchList artists={this.state.artists} albums={this.state.albums} tracks={this.state.tracks} />
                 </div>
